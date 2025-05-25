@@ -29,7 +29,7 @@ public class UpdateUser {
             System.out.println(payload.toJSONString());
 
             Response response = given()
-                    .header("Contet-Type","application/json")
+                    .header("Content-Type","application/json")
                     .contentType(ContentType.JSON)
                     .accept(ContentType.JSON)
                     .body(payload.toJSONString())
@@ -46,6 +46,29 @@ public class UpdateUser {
 
         } catch (Exception e) {
             System.out.println("Failed to update the user using PUT request");
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void deleteUser()
+    {
+        try {
+            RestAssured.baseURI = "http://localhost:3000";
+
+            Response response = given()
+                    .pathParam("id", "3ea6")
+                    .log().all()
+                    .when()
+                    .delete("/registrationData/{id}")
+                    .then()
+                    .statusCode(200)
+                    .log().all()
+                    .extract().response();
+            Assert.assertEquals(response.getStatusCode(), 200);
+            System.out.println("Response Status Code : " + response.getStatusCode());
+        } catch (Exception e) {
+            System.out.println("Failed to Delete the User");
             e.printStackTrace();
         }
 
