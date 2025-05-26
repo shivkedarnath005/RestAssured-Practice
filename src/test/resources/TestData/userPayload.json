@@ -1,0 +1,10 @@
+{
+  "firstName": "Maria",
+  "lastName": "Sharapova",
+  "dateOfBirth": "1987-09-25",
+  "email": "maria.sharapoa@gmail.com",
+  "phoneNumber": "8855045338",
+  "addressCity": "Moscow",
+  "programmingLanguage": "Pearl",
+  "engineeringSubject": "Computer Networks"
+}
